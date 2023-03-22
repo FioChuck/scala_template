@@ -53,11 +53,10 @@ object BqDemo {
         "temporaryGcsBucket",
         "cf-spark-temp"
       ) // indirect mode destination gcs bucket
-      .option("writeMethod", "direct")
+      .option("writeMethod", "indirect")
       .mode("overwrite") // overwrite or append to destination table
       .save(
-        "cf-data-analytics.market_data.googl_spark_ingestion"
+        "cf-data-analytics.market_data.googl_spark_ingestion_2"
       ) // define destination table
-
   }
 }
