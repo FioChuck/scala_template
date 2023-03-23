@@ -1,4 +1,3 @@
-import scala.math.random
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.types.StructField
 import org.apache.spark.sql.Row
@@ -6,7 +5,7 @@ import org.apache.spark.sql.types.IntegerType
 import org.apache.spark.sql.types.StringType
 import org.apache.spark.sql.types.StructType
 import org.apache.spark.sql.functions._
-import org.apache.spark.ml.linalg
+import org.apache.spark.ml.linalg // why is this dependency required??
 
 object BqDemo {
   def main(args: Array[String]): Unit = {
@@ -29,16 +28,13 @@ object BqDemo {
 
     val df =
       spark.read
-        .format("bigquery")
+        .format("bigquery") // added as dependency via sbt build
         .option(
           "table",
           "cf-data-analytics.zone_1.googl_market_data"
         )
         // .option("viewsEnabled", "true")
         .load()
-
-    // val df = spark.read
-    //   .parquet("gs://cf-spark-external/googl-market-data")
 
     df.show()
 
@@ -57,7 +53,7 @@ object BqDemo {
       .option("writeMethod", "direct")
       .mode("overwrite") // overwrite or append to destination table
       .save(
-        "cf-data-analytics.market_data.googl_spark_ingestion_5"
+        "cf-data-analytics.market_data.googl_spark_ingestion_6"
       ) // define destination table
   }
 }
