@@ -36,11 +36,11 @@ object BqDemo {
         // .option("viewsEnabled", "true")
         .load()
 
-    df.show()
+    // df.show()
 
-    df.count()
+    // df.count()
 
-    df.printSchema()
+    // df.printSchema()
 
     val df2 = df.repartition(16) // create 8 partitions
 
@@ -53,7 +53,7 @@ object BqDemo {
       .option("writeMethod", "direct")
       .mode("overwrite") // overwrite or append to destination table
       .save(
-        "cf-data-analytics.market_data.googl_spark_ingestion_7"
+        "cf-data-analytics.market_data.googl_spark_ingestion_8"
       ) // define destination table
   }
 }
