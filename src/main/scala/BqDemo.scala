@@ -53,7 +53,7 @@ object BqDemo {
       .option("writeMethod", "direct")
       .mode("overwrite") // overwrite or append to destination table
       .save(
-        "cf-data-analytics.market_data.googl_spark_ingestion_6"
+        "cf-data-analytics.market_data.googl_spark_ingestion_7"
       ) // define destination table
   }
 }
