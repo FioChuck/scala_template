@@ -35,7 +35,12 @@ object BqDemo {
         )
         .load()
 
-    val df2 = df.groupBy("dt").agg(max("trade_price")).orderBy("dt")
+    val df2 = df
+      .groupBy("dt")
+      .agg(max("trade_price"))
+      .orderBy("dt")
+      .withColumnRenamed("max(trade_price)", "max_price")
+
     // df.withColumn("test", to_date(col("dt"), "MM-dd-yyyy")).show()
     df2.show()
     print("end")
