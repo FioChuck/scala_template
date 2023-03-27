@@ -78,7 +78,7 @@ object BqDemo {
       .option("writeMethod", "direct")
       .mode("overwrite") // overwrite or append to destination table
       .save(
-        "cf-data-analytics.composer_destination.googl_spark_summarized"
+        "cf-data-analytics.composer_destination.googl_dataproc_summarized"
       ) // define destination table
   }
 }
